@@ -1,9 +1,20 @@
-echo "source ~/.dotfiles/.zshrc" >~/.zshrc
-dconf load /org/gnome/terminal/legacy/profiles:/ <gnome-terminal.dconf
+#!/bin/bash
+function addtocrontab() {
+	local frequency=$1
+	local command=$2
+	local job="$frequency $command"
 
-cp -r ~/.local/share/nvim ~/.dotfiles/local/share
-cp -r ~/.local/state/nvim ~/.dotfiles/local/state
-rm -rf ~/.local/share/nvim
-rm -rf ~/.local/state/nvim
-ln -s ~/.dotfiles/.local/share/nvim ~/.local/share/nvim
-ln -s ~/.dotfiles/local/state/nvim ~/.local/state/nvim
+	# List existing cron jobs, exclude the new job if it exists, then append the new job
+
+	cat <(crontab -l | grep -v -F -w "$command") <(echo "$job") | crontab -
+}
+
+# Example usage
+addtocrontab "*/5 * * * *" "rsync -r /home/$USER /media/$USER/discoship/discobackup"
+
+cp  ~/.dotfiles/.zshrc ~/.zshrc
+
+for file in `ls -a ~/.dotfiles/`
+do
+	ln -s /home/$USER/.dotfiles/$file ~/test/$file
+done
