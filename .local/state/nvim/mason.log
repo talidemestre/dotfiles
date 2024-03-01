@@ -1,4 +1,0 @@
-[INFO  Thu 02 Nov 2023 06:53:17 PM AEDT] ...e/nvim/lazy/mason.nvim/lua/mason-core/installer/init.lua:184: Executing installer for Package(name=stylua) {}
-[INFO  Thu 02 Nov 2023 06:53:17 PM AEDT] ...e/nvim/lazy/mason.nvim/lua/mason-core/installer/init.lua:184: Executing installer for Package(name=shfmt) {}
-[ERROR Thu 02 Nov 2023 06:53:21 PM AEDT] ...e/nvim/lazy/mason.nvim/lua/mason-core/installer/init.lua:249: Installation failed for Package(name=stylua) error="Installation was aborted."
-[ERROR Thu 02 Nov 2023 06:53:21 PM AEDT] ...e/nvim/lazy/mason.nvim/lua/mason-core/installer/init.lua:249: Installation failed for Package(name=shfmt) error="Installation was aborted."
