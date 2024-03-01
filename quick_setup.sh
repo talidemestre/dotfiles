@@ -10,7 +10,7 @@ function addtocrontab() {
 }
 
 # Example usage
-addtocrontab "*/5 * * * *" "rsync -r /home/$USER /media/$USER/discoship/discobackup"
+addtocrontab "12 * * * *" "rsync -aE --delete --exclude '*.cache' --exclude '/.config/Code/CachedData/' --exclude '/home/$USER/snap/' /home/$USER /media/$USER/discoship/discobackup"
 
 cp  ~/.dotfiles/.zshrc ~/.zshrc
 
